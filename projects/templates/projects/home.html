@@ -43,6 +43,40 @@
       <br />
       <button type="submit">Ajouter le chercheur</button>
     </form>
+    <h2>Ajouter une nouvelle publication</h2>
+    <form method="post" action="{% url 'add_publication' %}">
+      {% csrf_token %}
+      <label for="id_title">Titre :</label>
+      <input type="text" id="id_title" name="title" required />
+      <br />
+      <label for="id_summary">Résumé :</label>
+      <textarea
+        id="id_summary"
+        name="summary"
+        rows="4"
+        cols="50"
+        required
+      ></textarea>
+      <br />
+      <label for="id_project">Projet :</label>
+      <select id="id_project" name="project" required>
+        <!-- Remplacer cette partie par une boucle pour afficher les projets disponibles -->
+        <option value="">Sélectionnez un projet</option>
+        <option value="1">Projet 1</option>
+        <option value="2">Projet 2</option>
+        <!-- Ajoutez d'autres options selon vos projets disponibles -->
+      </select>
+      <br />
+      <label for="id_publication_date">Date de publication :</label>
+      <input
+        type="date"
+        id="id_publication_date"
+        name="publication_date"
+        required
+      />
+      <br /><br />
+      <button type="submit">Ajouter la publication</button>
+    </form>
     {% endblock %}
   </body>
 </html>

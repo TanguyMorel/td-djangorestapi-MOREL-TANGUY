@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from .models import Researcher, ResearchProject, Publication
 from .serializers import ResearcherSerializer, ResearchProjectSerializer, PublicationSerializer
 from django.http import HttpResponse
-from .forms import ResearcherForm
+from .forms import ResearcherForm, PublicationForm
 
 
 # ViewSets pour l'API REST
@@ -33,6 +33,17 @@ def add_researcher(request):
             return redirect('home')  # Redirection après ajout réussi
     else:
         form = ResearcherForm()
+
+def add_publication(request):
+    if request.method == 'POST':
+        form = PublicationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Redirection vers la page d'accueil ou toute autre page après l'ajout réussi
+    else:
+        form = PublicationForm()
+    
+    return render(request, 'add_publication.html', {'form': form})
 
 
 def project_list(request):
