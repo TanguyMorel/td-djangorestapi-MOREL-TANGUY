@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from rest_framework import viewsets
 from .models import Researcher, ResearchProject, Publication
 from .serializers import ResearcherSerializer, ResearchProjectSerializer, PublicationSerializer
 from django.http import HttpResponse
+from .forms import ResearcherForm
 
 
 # ViewSets pour l'API REST
@@ -24,11 +25,15 @@ class PublicationViewSet(viewsets.ModelViewSet):
 def home(request):
     return render(request, 'projects/home.html')
 
-# def home(request):
+def add_researcher(request):
+    if request.method == 'POST':
+        form = ResearcherForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Redirection après ajout réussi
+    else:
+        form = ResearcherForm()
 
-#         # home = ResearchProject.objects.all()
-#         # return render(request, 'home.html', {'projects': home})
-#     return HttpResponse("Bienvenue sur la page d'accueil des projets de recherche!")
 
 def project_list(request):
     projects = ResearchProject.objects.all()

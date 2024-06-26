@@ -9,9 +9,9 @@ router.register(r'projects', views.ResearchProjectViewSet)
 router.register(r'publications', views.PublicationViewSet)
 
 urlpatterns = [
-    # path('home', views.home, name='home'),
     path('', views.home, name='home'),
-    # path('', include(router.urls)), <-----------
+    path('api/', include(router.urls)),
+    path('add_researcher/', views.add_researcher, name='add_researcher'),
     path('projects/', views.project_list, name='projects_list.html'),
     # path('researchers/', views.researcher_list, name='researcher_list'),
     # path('publications/', views.publication_list, name='publication_list'),
