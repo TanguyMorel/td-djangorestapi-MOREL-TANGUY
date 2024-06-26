@@ -1,11 +1,36 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accueil des projets de recherche</title>
+    <title>Accueil</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
   </head>
   <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="">Suivi de projets de recherche</a>
+        </div>
+        <ul id="ul-nav">
+          <li>
+            <a href="#">lorem</a>
+          </li>
+          <li>
+            <a href="#">lorem</a>
+          </li>
+          <li>
+            <a href="#">lorem</a>
+          </li>
+        </ul>
+      </nav>
+      <h1>
+        Bienvenue sur votre application de gestion & suivi de projets de
+        recherche
+      </h1>
+    </header>
     <h1>Bienvenue sur la page d'accueil des projets de recherche!</h1>
     <p>Ce texte peut être personnalisé selon vos besoins.</p>
   </body>

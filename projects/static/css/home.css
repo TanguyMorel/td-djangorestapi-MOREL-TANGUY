@@ -1,0 +1,19 @@
+header {
+  width: 100%;
+  height: 100vh;
+  background: lightcyan;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: red;
+}
+
+#ul-nav {
+  display: flex;
+  justify-content: space-evenly;
+  background: green;
+  width: 300px;
+}
