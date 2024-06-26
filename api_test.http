@@ -1,0 +1,33 @@
+### Get all publications
+GET http://localhost:8000/api/publications/
+Accept: application/json
+
+### Create a new publication
+POST http://localhost:8000/api/publications/
+Content-Type: application/json
+
+{
+    "title": "New Publication",
+    "summary": "Voici mon résumé",
+    "project": 1,
+    "publication_date": "2024-11-20"
+}
+
+### Get a specific publication by ID
+GET http://localhost:8000/api/publications/7/
+Accept: application/json
+
+### Update an existing publication
+PUT http://localhost:8000/api/publications/7/
+Content-Type: application/json
+
+{
+    "title": "modification !",
+    "summary": "Voici mon résumé, mais modifié !",
+    "project": 1,
+    "publication_date": "2024-11-27"
+}
+
+### Delete a specific publication
+DELETE http://localhost:8000/api/publications/7/
+Accept: application/json
