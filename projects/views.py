@@ -84,7 +84,18 @@ def project_list(request):
 
 def researcher_list(request):
     researchers = Researcher.objects.all()
-    return render(request, 'projects/researchers_list.html', {'researchers': researchers})
+    context = {
+        'researchers': researchers,
+    }
+    return render(request, 'projects/researchers_list.html', context)
+
+def delete_researcher(request, researcher_id):
+    researcher = get_object_or_404(Researcher, id=researcher_id)
+    if request.method == 'POST':
+        researcher.delete()
+        return redirect('researchers_list')
+    # Si la méthode est GET, afficher une page de confirmation de suppression ou rediriger vers la liste des chercheurs
+    return redirect('researchers_list')  # Redirection par défaut
 
 def publication_list(request):
     publications = Publication.objects.all()

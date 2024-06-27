@@ -5,10 +5,22 @@
     <title>Liste des Chercheurs</title>
   </head>
   <body>
-    <h2>Liste des Chercheurs</h2>
+    <h1>Liste des Chercheurs</h1>
+
     <ul>
       {% for researcher in researchers %}
-      <li>{{ researcher }}</li>
+      <li>
+        <h2>{{ researcher }} {{researcher.specialty}}</h2>
+
+        <!-- Formulaire pour supprimer le chercheur -->
+        <form
+          action="{% url 'delete_researcher' researcher.id %}"
+          method="post"
+        >
+          {% csrf_token %}
+          <input type="submit" value="Supprimer" />
+        </form>
+      </li>
       {% endfor %}
     </ul>
     <a href="{% url 'home' %}">Retour à l'accueil</a>
