@@ -15,7 +15,6 @@ urlpatterns = [
     path('add_publication/', views.add_publication, name='add_publication'),
     path('projects/', views.project_list, name='projects_list.html'),
     path('researchers/', views.researcher_list, name='researchers_list'),
-    # path('researchers/', views.researcher_list, name='researcher_list'),
-    # path('publications/', views.publication_list, name='publication_list'),
+    path('publications/', views.publication_list, name='publication_list'),
 ]
 

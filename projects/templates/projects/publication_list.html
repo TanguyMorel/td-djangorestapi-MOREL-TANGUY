@@ -1,0 +1,21 @@
+<!-- list_publications.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liste des Publications</title>
+  </head>
+  <body>
+    <h2>Liste des Publications</h2>
+    <ul>
+      {% for publication in publications %}
+      <li>
+        <strong>{{ publication.title }}</strong><br />
+        {{ publication.summary }}<br />
+        Projet: {{ publication.project }}<br />
+        Date de publication: {{ publication.publication_date }}
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Retour à l'accueil</a>
+  </body>
+</html>
