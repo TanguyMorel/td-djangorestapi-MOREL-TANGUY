@@ -4,6 +4,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 
+# utilisateurs/views.py
+from django.shortcuts import render
+
+def landing_page(request):
+    return render(request, 'utilisateurs/landing_page.html')
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)

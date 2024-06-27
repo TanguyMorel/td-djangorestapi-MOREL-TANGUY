@@ -10,7 +10,7 @@ router.register(r'projects', views.ResearchProjectViewSet)
 router.register(r'publications', views.PublicationViewSet)
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('accueil/', views.home, name='home'),
     path('api/', include(router.urls)),
     path('projects/', views.project_list, name='projects_list'),
      path('publications/', views.publication_list, name='publication_list'),
@@ -22,6 +22,7 @@ urlpatterns = [
     path('add-research-project/', views.add_research_project, name='add_research_project'),
     path('delete-project/<int:pk>/', views.delete_project, name='delete_project'),
     path('admin/', admin.site.urls),
-    path('', include('utilisateurs.urls')),
+    path('', include('utilisateurs.urls')),  # Inclure les URL de l'application utilisateurs
+    path('accounts/', include('django.contrib.auth.urls')),  
 ]
 
