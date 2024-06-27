@@ -53,6 +53,7 @@ def add_researcher(request):
             return redirect('home')  # Redirection après ajout réussi
     else:
         form = ResearcherForm()
+        
 
 def add_publication(request):
     if request.method == 'POST':
@@ -85,10 +86,20 @@ def researcher_list(request):
     researchers = Researcher.objects.all()
     return render(request, 'projects/researchers_list.html', {'researchers': researchers})
 
-
 def publication_list(request):
     publications = Publication.objects.all()
-    return render(request, 'projects/publication_list.html', {'publications': publications})
+    context = {
+        'publications': publications,
+    }
+    return render(request, 'projects/publication_list.html', context)
+
+def delete_publication(request, publication_id):
+    publication = get_object_or_404(Publication, id=publication_id)
+    if request.method == 'POST':
+        publication.delete()
+        return redirect('publication_list')
+    # Si la méthode est GET, afficher une page de confirmation de suppression ou rediriger vers la liste des publications
+    return redirect('publication_list')  # Redirection par défaut
 
 def delete_project(request, pk):
     project = get_object_or_404(ResearchProject, pk=pk)

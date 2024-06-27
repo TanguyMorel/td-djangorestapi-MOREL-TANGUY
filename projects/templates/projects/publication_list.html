@@ -5,14 +5,23 @@
     <title>Liste des Publications</title>
   </head>
   <body>
-    <h2>Liste des Publications</h2>
+    <h1>Liste des Publications</h1>
+
     <ul>
       {% for publication in publications %}
       <li>
-        <strong>{{ publication.title }}</strong><br />
-        {{ publication.summary }}<br />
-        Projet: {{ publication.project }}<br />
-        Date de publication: {{ publication.publication_date }}
+        <h2>{{ publication.title }}</h2>
+        <p>{{ publication.summary }}</p>
+        <p>Date de publication: {{ publication.publication_date }}</p>
+
+        <!-- Formulaire pour supprimer la publication -->
+        <form
+          action="{% url 'delete_publication' publication.id %}"
+          method="post"
+        >
+          {% csrf_token %}
+          <input type="submit" value="Supprimer" />
+        </form>
       </li>
       {% endfor %}
     </ul>
