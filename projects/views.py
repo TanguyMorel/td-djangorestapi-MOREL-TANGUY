@@ -4,6 +4,8 @@ from .models import Researcher, ResearchProject, Publication
 from .serializers import ResearcherSerializer, ResearchProjectSerializer, PublicationSerializer
 from django.http import HttpResponse
 from .forms import ResearcherForm, PublicationForm, ResearchProjectForm
+from django.contrib.auth.decorators import login_required
+
 
 
 # ViewSets pour l'API REST
@@ -89,6 +91,7 @@ def researcher_list(request):
     }
     return render(request, 'projects/researchers_list.html', context)
 
+@login_required
 def delete_researcher(request, researcher_id):
     researcher = get_object_or_404(Researcher, id=researcher_id)
     if request.method == 'POST':
@@ -104,6 +107,7 @@ def publication_list(request):
     }
     return render(request, 'projects/publication_list.html', context)
 
+@login_required
 def delete_publication(request, publication_id):
     publication = get_object_or_404(Publication, id=publication_id)
     if request.method == 'POST':
@@ -112,6 +116,7 @@ def delete_publication(request, publication_id):
     # Si la méthode est GET, afficher une page de confirmation de suppression ou rediriger vers la liste des publications
     return redirect('publication_list')  # Redirection par défaut
 
+@login_required
 def delete_project(request, pk):
     project = get_object_or_404(ResearchProject, pk=pk)
     if request.method == 'POST':

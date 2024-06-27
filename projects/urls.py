@@ -2,6 +2,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import ResearcherViewSet, ResearchProjectViewSet, PublicationViewSet, home
 from . import views
+from django.contrib import admin
 
 router = DefaultRouter()
 router.register(r'researchers', views.ResearcherViewSet)
@@ -20,5 +21,7 @@ urlpatterns = [
     path('add_publication/', views.add_publication, name='add_publication'),
     path('add-research-project/', views.add_research_project, name='add_research_project'),
     path('delete-project/<int:pk>/', views.delete_project, name='delete_project'),
+    path('admin/', admin.site.urls),
+    path('', include('utilisateurs.urls')),
 ]
 
