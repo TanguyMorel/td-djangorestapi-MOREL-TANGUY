@@ -21,9 +21,29 @@ class PublicationViewSet(viewsets.ModelViewSet):
 
 # Views pour le front
 
-
 def home(request):
-    return render(request, 'projects/home.html')
+    # Récupérer tous les chercheurs
+    researchers = Researcher.objects.all()
+
+    # Si la méthode de requête est POST, traiter le formulaire
+    if request.method == 'POST':
+        form = ResearchProjectForm(request.POST)
+        if form.is_valid():
+            # Enregistrer le projet de recherche
+            project_instance = form.save()
+            print("Projet sauvegardé avec succès:", project_instance)
+            return redirect('home')  # Rediriger vers la même page après soumission
+        else:
+            print("Erreurs de validation:", form.errors)
+    else:
+        form = ResearchProjectForm()
+
+    # Passer le formulaire et les chercheurs au contexte de la page d'accueil
+    context = {
+        'form': form,
+        'researchers': researchers,
+    }
+    return render(request, 'projects/home.html', context)
 
 def add_researcher(request):
     if request.method == 'POST':
@@ -43,8 +63,6 @@ def add_publication(request):
     else:
         form = PublicationForm()
     
-    return render(request, 'add_publication.html', {'form': form})
-
 def add_research_project(request):
     if request.method == 'POST':
         form = ResearchProjectForm(request.POST)
