@@ -1,14 +1,44 @@
 <!-- utilisateurs/templates/landing_page.html -->
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Landing Page</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/landing_page.css' %}" />
   </head>
   <body>
-    <h1>Welcome to the Landing Page</h1>
-    <p>This is the landing page of your application.</p>
-    <!-- Ajoutez ici des liens vers la page d'inscription et de connexion -->
-    <a href="{% url 'signin' %}">Sign in</a> |
-    <a href="{% url 'signup' %}">Sign Up</a>
+    <header>
+      <nav>
+        <a href="#">
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="Logo de l'application"
+          />
+        </a>
+        <ul>
+          <li><a href="#"> Contact </a></li>
+          <li><a href="#"> À propos </a></li>
+        </ul>
+      </nav>
+      <div class="header-content">
+        <h1 class="title">Bienvenue sur Gest Proj' !</h1>
+        <p class="text">
+          Avec <span class="bold">Gest Proj'</span>, simplifiez la gestion de
+          vos projets de recherche. Suivez facilement les publications,
+          collaborez avec les chercheurs, et organisez toutes vos données de
+          manière efficace. Grâce à notre plateforme intuitive, maximisez
+          l'impact de vos recherches et publiez vos découvertes en toute
+          simplicité !
+        </p>
+        <div class="buttons-wrapper">
+          <a class="button primary" href="{% url 'signin' %}">Connexion</a>
+          <a class="button" href="{% url 'signup' %}">Inscription</a>
+        </div>
+      </div>
+    </header>
+    <footer>
+      <p class="copyright">© - 2024</p>
+    </footer>
   </body>
 </html>
