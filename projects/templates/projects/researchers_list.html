@@ -1,0 +1,16 @@
+<!-- list_researchers.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Liste des Chercheurs</title>
+  </head>
+  <body>
+    <h2>Liste des Chercheurs</h2>
+    <ul>
+      {% for researcher in researchers %}
+      <li>{{ researcher }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Retour à l'accueil</a>
+  </body>
+</html>

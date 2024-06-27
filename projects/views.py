@@ -54,7 +54,8 @@ def project_list(request):
 
 def researcher_list(request):
     researchers = Researcher.objects.all()
-    return render(request, 'projects/researcher_list.html', {'researchers': researchers})
+    return render(request, 'projects/researchers_list.html', {'researchers': researchers})
+
 
 def publication_list(request):
     publications = Publication.objects.all()
