@@ -40,7 +40,7 @@
         </p>
         <div class="explication">
           <div class="topic">
-            <a href="#">Ajouter un chercheur</a>
+            <a href="#add-researcher">Ajouter un chercheur</a>
             <p>
               Le nom et prénom du chercheur.e doivent êtres obligatoirement
               renseignés.
@@ -65,7 +65,7 @@
       </div>
     </header>
     {% block content %}
-    <h2>Ajouter un chercheur</h2>
+    <h2 id="add-researcher">Ajouter un chercheur</h2>
     <form method="post" action="{% url 'add_researcher' %}">
       {% csrf_token %}
       <label for="id_name">Nom :</label>

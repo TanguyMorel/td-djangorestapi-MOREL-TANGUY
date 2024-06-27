@@ -1,6 +1,6 @@
 header {
   width: 100%;
-  height: calc(100vh - 50px);
+  height: fit-content;
 }
 
 header nav {
@@ -33,14 +33,13 @@ nav ul li a {
 }
 
 .header-content {
-  background-color: lightblue;
   display: flex;
   gap: 30px;
   flex-direction: column;
   align-items: center;
   align-items: flex-start;
   width: fit-content;
-  height: 500px;
+  height: fit-content;
   padding: 30px;
 }
 
