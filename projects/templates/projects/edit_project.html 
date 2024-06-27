@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modifier un projet</title>
+  </head>
+  <body>
+    <h1>Modifier le projet "{{ project.title }}"</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="id_title">Titre :</label>
+      <input
+        type="text"
+        id="id_title"
+        name="title"
+        value="{{ project.title }}"
+        required
+      />
+      <br />
+
+      <label for="id_description">Description :</label>
+      <textarea id="id_description" name="description" required>{{
+        project.description
+      }}</textarea>
+      <br />
+
+      <label for="id_start_date">Date de début :</label>
+      <input
+        type="date"
+        id="id_start_date"
+        name="start_date"
+        value="{{ project.start_date }}"
+        required
+      />
+      <br />
+
+      <label for="id_end_date">Date de fin :</label>
+      <input
+        type="date"
+        id="id_end_date"
+        name="end_date"
+        value="{{ project.end_date }}"
+        required
+      />
+      <br />
+
+      <!-- Ajoutez d'autres champs du modèle ici -->
+
+      <button type="submit">Enregistrer les modifications</button>
+    </form>
+  </body>
+</html>

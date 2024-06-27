@@ -16,6 +16,7 @@ urlpatterns = [
     path('researchers/', views.researcher_list, name='researchers_list'),
     path('add_researcher/', views.add_researcher, name='add_researcher'),
     path('add_publication/', views.add_publication, name='add_publication'),
-     path('add-research-project/', views.add_research_project, name='add_research_project'),
+    path('add-research-project/', views.add_research_project, name='add_research_project'),
+    path('delete-project/<int:pk>/', views.delete_project, name='delete_project'),
 ]
 

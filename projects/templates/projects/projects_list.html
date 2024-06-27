@@ -8,8 +8,17 @@
     <h1>List of Research Projects</h1>
     <ul>
       {% for project in projects %}
-      <li>{{ project.title }}</li>
-      <!-- Affichez d'autres attributs du modèle selon vos besoins -->
+      <li>
+        {{ project.title }}
+        <form
+          method="post"
+          action="{% url 'delete_project' project.id %}"
+          style="display: inline"
+        >
+          {% csrf_token %}
+          <button type="submit">Supprimer</button>
+        </form>
+      </li>
       {% endfor %}
     </ul>
   </body>

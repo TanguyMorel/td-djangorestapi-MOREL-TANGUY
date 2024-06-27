@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import render, get_object_or_404, redirect
 from rest_framework import viewsets
 from .models import Researcher, ResearchProject, Publication
 from .serializers import ResearcherSerializer, ResearchProjectSerializer, PublicationSerializer
@@ -89,3 +89,15 @@ def researcher_list(request):
 def publication_list(request):
     publications = Publication.objects.all()
     return render(request, 'projects/publication_list.html', {'publications': publications})
+
+def delete_project(request, pk):
+    project = get_object_or_404(ResearchProject, pk=pk)
+    if request.method == 'POST':
+        project.delete()
+        return redirect('projects_list')  # Redirection vers la liste des projets après suppression
+    else:
+        # Affichage d'une confirmation de suppression (optionnel)
+        context = {
+            'project': project,
+        }
+        return render(request, 'delete_project.html', context)
