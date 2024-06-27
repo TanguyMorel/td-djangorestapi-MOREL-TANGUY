@@ -11,7 +11,7 @@ router.register(r'publications', views.PublicationViewSet)
 urlpatterns = [
     path('', views.home, name='home'),
     path('api/', include(router.urls)),
-    path('projects/', views.project_list, name='projects_list.html'),
+    path('projects/', views.project_list, name='projects_list'),
     path('publications/', views.publication_list, name='publication_list'),
     path('researchers/', views.researcher_list, name='researchers_list'),
     path('add_researcher/', views.add_researcher, name='add_researcher'),
