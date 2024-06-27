@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accueil</title>
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/home_2.css' %}" />
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo">
-          <a href="">Suivi de projets de recherche</a>
-        </div>
-        <ul id="ul-nav">
+        <a href="#">
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="Logo de l'application"
+          />
+        </a>
+        <ul>
           <li>
             <a href="{% url 'projects_list' %}">projets</a>
           </li>
@@ -24,12 +27,42 @@
           <li>
             <a href="{% url 'researchers_list' %}">chercheurs</a>
           </li>
+          <li><a href="#"> Contact </a></li>
+          <li><a href="#"> À propos </a></li>
         </ul>
       </nav>
-      <h1>
-        Bienvenue sur votre application de gestion & suivi de projets de
-        recherche
-      </h1>
+      <div class="header-content">
+        <h1 class="title">Interface d'administration</h1>
+        <p class="text">
+          Vous voici arrivé sur l'interface d'administration de
+          <span class="bold">Gest Proj'</span> ! En quelques clics, vous pourrez
+          ajouter ou supprimer du contenu. C'est facile, promis !
+        </p>
+        <div class="explication">
+          <div class="topic">
+            <a href="#">Ajouter un chercheur</a>
+            <p>
+              Le nom et prénom du chercheur.e doivent êtres obligatoirement
+              renseignés.
+            </p>
+          </div>
+          <div class="topic">
+            <a href="#">Ajouter une nouvelle publication</a>
+            <p>
+              La publication doit contenir un titre, un court résumé, le projet
+              dans lequel elle se classe ainsi que la date de publication.
+            </p>
+          </div>
+          <div class="topic">
+            <a href="#">Ajouter un nouveau projet</a>
+            <p>
+              Le projet de recherche doit avoir un nom, une description, les
+              dates de travail, un chef de projet, et un ou plusieurs
+              chercheurs.
+            </p>
+          </div>
+        </div>
+      </div>
     </header>
     {% block content %}
     <h2>Ajouter un chercheur</h2>
