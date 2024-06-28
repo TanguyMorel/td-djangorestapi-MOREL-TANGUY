@@ -155,3 +155,8 @@ footer {
   border: none;
   border-radius: 5px;
 }
+
+.form-button:hover {
+  cursor: pointer;
+  background-color: rgb(188, 188, 188);
+}
