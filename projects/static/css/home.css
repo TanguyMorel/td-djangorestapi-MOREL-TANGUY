@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 header {
   width: 100%;
   height: fit-content;
@@ -71,7 +75,6 @@ nav ul li a {
 
 .button {
   padding: 13px;
-  background: lightcoral;
   border-radius: 5px;
   font-size: 20px;
   text-decoration: none;
@@ -87,4 +90,40 @@ footer {
   padding: 20px;
   font-family: "montserrat";
   text-align: right;
+}
+
+.sec-1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  gap: 10px;
+  padding: 20px;
+}
+
+.form-wrapper > h2 {
+  font-family: "montserrat";
+  font-weight: bolder;
+  font-size: 25px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+  height: fit-content;
+  padding: 15px;
+}
+
+.form-button {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
 }
