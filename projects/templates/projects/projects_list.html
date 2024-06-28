@@ -1,10 +1,36 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Project List</title>
+    <title>Liste des projets</title>
+    <link rel="stylesheet" href="{% static 'css/projet_list.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
   </head>
   <body>
+    <header>
+      <nav>
+        <a href="#">
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="Logo de l'application"
+          />
+        </a>
+        <ul>
+          <li>
+            <a href="{% url 'projects_list' %}">projets</a>
+          </li>
+          <li>
+            <a href="{% url 'publication_list' %}">publications</a>
+          </li>
+          <li>
+            <a href="{% url 'researchers_list' %}">chercheurs</a>
+          </li>
+          <li><a href="#"> Contact </a></li>
+          <li><a href="#"> À propos </a></li>
+        </ul>
+      </nav>
+    </header>
     <h1>List of Research Projects</h1>
     <ul>
       {% for project in projects %}
