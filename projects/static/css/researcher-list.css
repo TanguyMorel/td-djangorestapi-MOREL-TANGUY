@@ -1,0 +1,66 @@
+header {
+  width: 100%;
+  height: fit-content;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+nav img {
+  width: 100px;
+  height: auto;
+}
+
+nav ul {
+  display: flex;
+  width: fit-content;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav ul li {
+  padding: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-family: "montserrat";
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 700px;
+  padding: 50px 20px;
+}
+
+section h1 {
+  font-family: "montserrat";
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+section ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+section ul li {
+  padding: 20px;
+  width: fit-content;
+  border-bottom: solid 1px black;
+  font-weight: bold;
+}
+
+section input {
+  margin-top: 10px;
+}

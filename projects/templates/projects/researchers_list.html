@@ -1,28 +1,54 @@
-<!-- list_researchers.html -->
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Liste des Chercheurs</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/researcher-list.css' %}" />
   </head>
   <body>
-    <h1>Liste des Chercheurs</h1>
+    <header>
+      <nav>
+        <a href="{% url 'home'%}">
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="Logo de l'application"
+          />
+        </a>
+        <ul>
+          <li>
+            <a href="{% url 'projects_list' %}">projets</a>
+          </li>
+          <li>
+            <a href="{% url 'publication_list' %}">publications</a>
+          </li>
+          <li>
+            <a href="{% url 'researchers_list' %}">chercheurs</a>
+          </li>
+          <li><a href="#"> Contact </a></li>
+          <li><a href="#"> À propos </a></li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <h1>Liste des Chercheurs</h1>
 
-    <ul>
-      {% for researcher in researchers %}
-      <li>
-        <h2>{{ researcher }} {{researcher.specialty}}</h2>
+      <ul>
+        {% for researcher in researchers %}
+        <li>
+          <h2>{{ researcher }} {{researcher.specialty}}</h2>
 
-        <!-- Formulaire pour supprimer le chercheur -->
-        <form
-          action="{% url 'delete_researcher' researcher.id %}"
-          method="post"
-        >
-          {% csrf_token %}
-          <input type="submit" value="Supprimer" />
-        </form>
-      </li>
-      {% endfor %}
-    </ul>
-    <a href="{% url 'home' %}">Retour à l'accueil</a>
+          <!-- Formulaire pour supprimer le chercheur -->
+          <form
+            action="{% url 'delete_researcher' researcher.id %}"
+            method="post"
+          >
+            {% csrf_token %}
+            <input type="submit" value="Supprimer" />
+          </form>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
   </body>
 </html>
