@@ -4,8 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Liste des projets</title>
-    <link rel="stylesheet" href="{% static 'css/projet_list.css' %}" />
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/projet_list.css' %}" />
   </head>
   <body>
     <header>
@@ -31,21 +31,23 @@
         </ul>
       </nav>
     </header>
-    <h1>List of Research Projects</h1>
-    <ul>
-      {% for project in projects %}
-      <li>
-        {{ project.title }}
-        <form
-          method="post"
-          action="{% url 'delete_project' project.id %}"
-          style="display: inline"
-        >
-          {% csrf_token %}
-          <button type="submit">Supprimer</button>
-        </form>
-      </li>
-      {% endfor %}
-    </ul>
+    <section>
+      <h1>Liste des projets de tous les recherche</h1>
+      <ul>
+        {% for project in projects %}
+        <li>
+          {{ project.title }}
+          <form
+            method="post"
+            action="{% url 'delete_project' project.id %}"
+            style="display: inline"
+          >
+            {% csrf_token %}
+            <button type="submit">Supprimer</button>
+          </form>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
   </body>
 </html>
